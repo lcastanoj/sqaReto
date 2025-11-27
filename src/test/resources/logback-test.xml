@@ -1,16 +1,23 @@
 <configuration>
 
+    <!-- Silenciar tráfico HTTP detallado -->
     <logger name="org.apache.hc.client5.http.wire" level="OFF"/>
+    <!-- Solo errores de WebDriverManager -->
     <logger name="io.github.bonigarcia.wdm" level="ERROR"/>
+
+    <!-- (Opcional) más detalle de Serenity internamente -->
+    <!-- Descomenta si necesitas debug fino
+    <logger name="net.serenitybdd" level="DEBUG"/>
+    -->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
-
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %-5level [%thread] %logger - %msg%n</pattern>
-        </encoder>
-    </appender>
 
 </configuration>
