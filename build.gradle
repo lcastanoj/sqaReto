@@ -7,7 +7,11 @@ plugins {
 
 group = 'sqasa'
 version = '1.0.0'
-sourceCompatibility = JavaVersion.VERSION_17
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 repositories {
     mavenCentral()
@@ -31,7 +35,7 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
 
-    // JUnit 4
+    // JUnit 4 (runners @RunWith)
     testImplementation "junit:junit:4.13.2"
 
     // Driver manager
@@ -47,6 +51,8 @@ serenity {
     reports = ["single-page-html"]
 }
 
+// Agregar reports Serenity después de test
 test.finalizedBy(aggregate)
 
+// Permitir que siga ejecutando aunque fallen escenarios
 gradle.startParameter.continueOnFailure = true

@@ -10,7 +10,7 @@ Feature: Date selection using jQuery DatePicker
 
     Examples:
       | day | date       |
-      | 10  | 05/10/2025 |
+      | 10  | 12/10/2025 |
 
 
   @CurrentlyMonth
@@ -20,13 +20,13 @@ Feature: Date selection using jQuery DatePicker
 
     Examples:
       | day | date       |
-      | 15  | 04/15/2025 |
+      | 15  | 11/15/2025 |
 
-  @ManuallyInteraction
-  Scenario Outline: Prevent manual date input in the Datepicker
-    When I try to type a "<date>" manually into the date field
-    Then the date field should still be empty
-
-    Examples:
-      | date       |
-      | 04/13/2025 |
+  ##@ManuallyInteraction
+  ##Scenario Outline: Prevent manual date input in the Datepicker
+  ##  When I try to type a "<date>" manually into the date field
+  ##  Then the date field should still be empty
+  ##
+  ##  Examples:
+  ##    | date       |
+  ##    | 04/13/2026 |

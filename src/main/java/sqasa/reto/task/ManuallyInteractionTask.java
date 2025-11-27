@@ -2,8 +2,10 @@ package sqasa.reto.task;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Switch;
+import org.openqa.selenium.interactions.Actions;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static sqasa.reto.interfaces.JQueryDataPickerUI.DATE_INPUT;
@@ -19,9 +21,11 @@ public class ManuallyInteractionTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Switch.toFrame(FIRST_IFRAME.resolveFor(actor)),
-                Enter.theValue(date).into(DATE_INPUT)
+                Switch.toFrame(FIRST_IFRAME.resolveFor(actor))
         );
+        new Actions(BrowseTheWeb.as(actor).getDriver())
+                .sendKeys(DATE_INPUT.resolveFor(actor), date)
+                .perform();
     }
 
     public static ManuallyInteractionTask button(String date) {
