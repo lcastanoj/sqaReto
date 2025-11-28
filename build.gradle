@@ -5,7 +5,7 @@ plugins {
     id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.8'
 }
 
-group = 'sqasa'
+group = 'sqasa.reto'
 version = '1.0.0'
 
 java {
@@ -46,7 +46,7 @@ dependencies {
 }
 
 serenity {
-    testRoot = "autoFrontend.runners"
+    testRoot = "sqasa.reto.runners"
     requirementsBaseDir = "src/test/resources/features"
     reports = ["single-page-html"]
 }
