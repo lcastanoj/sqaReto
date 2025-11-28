@@ -46,7 +46,7 @@ dependencies {
 }
 
 serenity {
-    testRoot = "sqasa.reto.runners"
+    testRoot = "autoFrontend.runners"
     requirementsBaseDir = "src/test/resources/features"
     reports = ["single-page-html"]
 }
